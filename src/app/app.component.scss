@@ -1,0 +1,111 @@
+
+$primary: #07889B;
+$secondary: #66B9BF;
+$dragging: #EEAA7B;
+$text: white;
+$dt-background: #E0E1D7;
+
+#pagewrapper {
+    height: 100%;
+
+    .todos-section-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 50%;
+            padding: 0;
+
+            .card-header {
+                background-color: $primary;
+                color: $text;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding: .5em;
+
+                .card-title {
+                    font-size: 2em;
+                    margin: 0;
+                }
+            }
+
+            .card-content {
+                height: 100%;
+                padding: .25em;
+
+                .list {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100% !important;
+
+                    .todo-item {
+                        background-color: $secondary;
+                        border-bottom: 1px solid $text;
+                        color: $text;
+                        font-size: 1.5em;
+                        padding: .5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cdk-drag-preview {
+    background-color: $dragging;
+    color: $text;
+    box-sizing: border-box;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    font-size: 1.5em;
+    padding: .5em;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .todo-item:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/********* MEDIA QUERIES ***********/
+
+@media screen and (min-width: 768px) {
+    #pagewrapper {
+        .todos-section-wrapper {
+            flex-direction: row;
+            .card {
+                flex: 1 1 50%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #pagewrapper {
+        background-color: $dt-background;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5em;
+
+        .todos-section-wrapper {
+            width: 75%;
+            height: 75%;
+        }
+    }
+}
+
+
+
